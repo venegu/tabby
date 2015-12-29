@@ -35,22 +35,19 @@ class ViewController: UIViewController {
         let tipPercentages = [0.18, 0.2, 0.22]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
-        let bill = NSString(string: billField.text!)
-        let billAmount = bill.doubleValue
+        let billAmount = NSString(string: billField.text!).doubleValue
         
         let tip = billAmount * tipPercentage
         let total = tip + billAmount
         
-
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
-
     }
 
     @IBAction func onTap(sender: AnyObject) {
         // Making the keyboard disappear only after having added text to the text field
-        let billAm = NSString(string: billField.text!)
-        if billAm.length >= 1 {
+        let bill = NSString(string: billField.text!)
+        if bill.length >= 1 {
             view.endEditing(true)
         }
     }
