@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
+        
+        // Making the keyboard appear upon opening the app
+        billField.becomeFirstResponder()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +33,7 @@ class ViewController: UIViewController {
 
     @IBAction func onEditingChange(sender: AnyObject) {
         let tipPercentages = [0.18, 0.2, 0.22]
-        var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
         let bill = NSString(string: billField.text!)
         let billAmount = bill.doubleValue
@@ -44,7 +48,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onTap(sender: AnyObject) {
-        view.endEditing(true)
+        // Making the keyboard disappear only after having added text to the text field
+        let billAm = NSString(string: billField.text!)
+        if billAm.length >= 1 {
+            view.endEditing(true)
+        }
     }
 }
 
