@@ -17,9 +17,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Retriving user input and having it display
-        let defaults = `NSUserDefaults`.standardUserDefaults()
-        billField.text = (defaults.objectForKey("bill") as! String)
         
         // Do any additional setup after loading the view, typically from a nib.
         tipLabel.text = "$0.00"
@@ -37,12 +34,7 @@ class ViewController: UIViewController {
     @IBAction func onEditingChange(sender: AnyObject) {
         let tipPercentages = [0.18, 0.2, 0.22]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
-        
-        // Saving the user input
-        let defaults = `NSUserDefaults`.standardUserDefaults()
-        defaults.setObject(billField.text, forKey: "bill")
-        defaults.synchronize()
-        
+                
         let billAmount = NSString(string: billField.text!).doubleValue
         
         let tip = billAmount * tipPercentage
