@@ -19,11 +19,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        tipLabel.text = "$0.00"
-        totalLabel.text = "$0.00"
+        
+        // Initial currency formatting when app starts
+        let currencySymbol = NSLocale.currentLocale().objectForKey(NSLocaleCurrencySymbol) as! String
+        billField.placeholder = (currencySymbol as String) + "0.00"
+        tipLabel.text = (currencySymbol as String) + "0.00"
+        totalLabel.text =  (currencySymbol as String) + "0.00"
         
         // Making the keyboard appear upon opening the app
         billField.becomeFirstResponder()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,14 +39,17 @@ class ViewController: UIViewController {
     @IBAction func onEditingChange(sender: AnyObject) {
         let tipPercentages = [0.18, 0.2, 0.22]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
-                
-        let billAmount = NSString(string: billField.text!).doubleValue
         
+        let billAmount = NSString(string: billField.text!).doubleValue
         let tip = billAmount * tipPercentage
         let total = tip + billAmount
         
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        // Currency formatting after inputting a value
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        
+        tipLabel.text = formatter.stringFromNumber(tip)
+        totalLabel.text = formatter.stringFromNumber(total)
     }
 
     @IBAction func onTap(sender: AnyObject) {
