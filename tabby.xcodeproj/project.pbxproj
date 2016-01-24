@@ -15,6 +15,7 @@
 		283862421C32284100C8B88D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283862401C32284100C8B88D /* LaunchScreen.storyboard */; };
 		2838624D1C32284100C8B88D /* tabbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838624C1C32284100C8B88D /* tabbyTests.swift */; };
 		283862581C32284100C8B88D /* tabbyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283862571C32284100C8B88D /* tabbyUITests.swift */; };
+		28C2C3E31C5584C70036E06C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C2C3E21C5584C70036E06C /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		283862531C32284100C8B88D /* tabbyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tabbyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		283862571C32284100C8B88D /* tabbyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabbyUITests.swift; sourceTree = "<group>"; };
 		283862591C32284100C8B88D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28C2C3E21C5584C70036E06C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				283862341C32284100C8B88D /* AppDelegate.swift */,
 				283862361C32284100C8B88D /* ViewController.swift */,
 				283862381C32284100C8B88D /* Main.storyboard */,
+				28C2C3E21C5584C70036E06C /* SettingsViewController.swift */,
 				2838623E1C32284100C8B88D /* Assets.xcassets */,
 				283862401C32284100C8B88D /* LaunchScreen.storyboard */,
 				283862431C32284100C8B88D /* Info.plist */,
@@ -262,6 +265,7 @@
 				283862371C32284100C8B88D /* ViewController.swift in Sources */,
 				2838623D1C32284100C8B88D /* tabby.xcdatamodeld in Sources */,
 				283862351C32284100C8B88D /* AppDelegate.swift in Sources */,
+				28C2C3E31C5584C70036E06C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +494,7 @@
 				2838625E1C32284100C8B88D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2838625F1C32284100C8B88D /* Build configuration list for PBXNativeTarget "tabbyTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +503,7 @@
 				283862611C32284100C8B88D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		283862621C32284100C8B88D /* Build configuration list for PBXNativeTarget "tabbyUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +512,7 @@
 				283862641C32284100C8B88D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
