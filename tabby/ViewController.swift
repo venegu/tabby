@@ -62,6 +62,11 @@ class ViewController: UIViewController {
         tipLabel.text = formatter.stringFromNumber(tip)
         totalLabel.text = formatter.stringFromNumber(total)
         
+        // Updating tip distribution
+        let numberPeople = Double(numberPeopleLabel.text!)
+        let distTip = total/numberPeople!
+        tipPerPersonLabel.text = formatter.stringFromNumber(distTip)! + " each"
+        
         //Storing bill amount
         let defaults = NSUserDefaults.standardUserDefaults()
         
@@ -81,10 +86,18 @@ class ViewController: UIViewController {
     @IBAction func onTapMinus(sender: AnyObject) {
         var numberPeople = Int(numberPeopleLabel.text!)
         if numberPeople > 1 {
+            // Decrement # of people (--)
             numberPeople = numberPeople! - 1
             numberPeopleLabel.text = "\(numberPeople!)"
-            let totalSlicedInt = NSString(string: String(totalLabel.text!.characters.dropFirst())).doubleValue
-            print(totalSlicedInt)
+            
+            // Currency formatting after inputting a value
+            let formatter = NSNumberFormatter()
+            formatter.numberStyle = .CurrencyStyle
+            
+            // Get total, calculate & print amount/person
+            let total = NSString(string: String(totalLabel.text!.characters.dropFirst())).doubleValue
+            let distTip = total/Double(numberPeople!)
+            tipPerPersonLabel.text = formatter.stringFromNumber(distTip)! + " each"
         }
     }
     
@@ -92,8 +105,16 @@ class ViewController: UIViewController {
         var numberPeople = Int(numberPeopleLabel.text!)
         numberPeople = numberPeople! + 1
         numberPeopleLabel.text = "\(numberPeople!)"
+        
+        // Currency formatting after inputting a value
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        
+        // Get total, calculate & print amount/person
+        let total = NSString(string: String(totalLabel.text!.characters.dropFirst())).doubleValue
+        let distTip = total/Double(numberPeople!)
+        tipPerPersonLabel.text = formatter.stringFromNumber(distTip)! + " each"
     }
-    
     
 }
 
