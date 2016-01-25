@@ -14,6 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var numberPeopleLabel: UILabel!
+    @IBOutlet weak var tipPerPersonLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,5 +77,23 @@ class ViewController: UIViewController {
             view.endEditing(true)
         }
     }
+    
+    @IBAction func onTapMinus(sender: AnyObject) {
+        var numberPeople = Int(numberPeopleLabel.text!)
+        if numberPeople > 1 {
+            numberPeople = numberPeople! - 1
+            numberPeopleLabel.text = "\(numberPeople!)"
+            let totalSlicedInt = NSString(string: String(totalLabel.text!.characters.dropFirst())).doubleValue
+            print(totalSlicedInt)
+        }
+    }
+    
+    @IBAction func onTapPlus(sender: AnyObject) {
+        var numberPeople = Int(numberPeopleLabel.text!)
+        numberPeople = numberPeople! + 1
+        numberPeopleLabel.text = "\(numberPeople!)"
+    }
+    
+    
 }
 
