@@ -46,6 +46,24 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        // Loading tip value
+        let userTipPercentage = defaults.integerForKey("userTipPercentage")
+        
+        // Setting tipControl to whatever userTipPercentage (after loading tipValue)
+        tipControl.selectedSegmentIndex = userTipPercentage
+        
+        // Loading # of people
+        //let userNumberOfPeople = defaults.integerForKey("userNumberOfPeople")
+        
+        // Setting numberPeopleLabel to whatever value userNumberOfPeople has
+        
+    
+    }
 
     @IBAction func onEditingChange(sender: AnyObject) {
         let tipPercentages = [0.18, 0.2, 0.22]
