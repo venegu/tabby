@@ -10,7 +10,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tabby" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gjx-Ur-xoP">
@@ -132,11 +132,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tabby" id="Wbu-SW-uNR">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="rgw-pU-U7t">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="KKR-1i-qBe" kind="push" id="nfk-nA-yVD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="billField" destination="hL6-dp-pev" id="zcY-72-75S"/>
                         <outlet property="minusButton" destination="oxJ-bS-lUo" id="DYB-D5-UJ4"/>
@@ -162,7 +165,7 @@
             <objects>
                 <viewController id="KKR-1i-qBe" customClass="SettingsViewController" customModule="tabby" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kjV-lD-nAy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VCG-KQ-CGP">
@@ -203,8 +206,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Random"/>
-                                    <segment title="Light Side"/>
+                                    <segment title="Original"/>
                                     <segment title="Dark Side"/>
+                                    <segment title="Light Side"/>
                                 </segments>
                             </segmentedControl>
                             <view contentMode="scaleToFill" id="WZr-ik-SSG">
@@ -258,6 +262,7 @@
                         <color key="backgroundColor" red="0.99607843139999996" green="0.9114088239" blue="0.93339499999999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="ckW-bh-Tgw"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="userNumberPeople" destination="Gi1-VQ-7ZM" id="L6H-fA-Mdn"/>
                         <outlet property="userTip" destination="47H-68-0yd" id="hj1-cJ-cJP"/>
@@ -272,7 +277,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m0A-o2-dBj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="klU-0E-fUP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="klU-0E-fUP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
