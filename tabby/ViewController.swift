@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var numberPeopleLabel: UILabel!
     @IBOutlet weak var tipPerPersonLabel: UILabel!
     
+    let tipPercentages = [0.18, 0.2, 0.22]
     
     
     override func viewDidLoad() {
@@ -64,26 +65,44 @@ class ViewController: UIViewController {
         
     
     }
-
-    @IBAction func onEditingChange(sender: AnyObject) {
-        let tipPercentages = [0.18, 0.2, 0.22]
-        let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
-        
+    
+    func calculateTip (tipPercentage: Double) -> (tip: Double, total: Double) {
         let billAmount = NSString(string: billField.text!).doubleValue
         let tip = billAmount * tipPercentage
         let total = tip + billAmount
         
-        // Currency formatting after inputting a value
+        return (total, tip)
+    }
+    
+    func currencyFormatter (moneyValue: Double) -> String {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
         
-        tipLabel.text = formatter.stringFromNumber(tip)
-        totalLabel.text = formatter.stringFromNumber(total)
+        return formatter.stringFromNumber(moneyValue)!
+    }
+    
+    func updateAmountEach (total:Double) {
+        let numberPeople = Double(numberPeopleLabel.text!)
+        
+        let distributedAmount = total/numberPeople!
+        
+        tipPerPersonLabel.text = currencyFormatter(distributedAmount) + " each"
+        
+    }
+
+    @IBAction func onEditingChange(sender: AnyObject) {
+        
+        let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        
+        let values = calculateTip(tipPercentage)
+        
+        // Currency formatting after inputting a value
+        
+        tipLabel.text = currencyFormatter(values.tip)
+        totalLabel.text = currencyFormatter(values.total)
         
         // Updating tip distribution
-        let numberPeople = Double(numberPeopleLabel.text!)
-        let distTip = total/numberPeople!
-        tipPerPersonLabel.text = formatter.stringFromNumber(distTip)! + " each"
+        updateAmountEach(values.total)
         
         //Storing bill amount
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -92,6 +111,8 @@ class ViewController: UIViewController {
         defaults.setObject(NSDate.init(), forKey: "billDate")
         defaults.synchronize()
     }
+    
+    
 
     @IBAction func onTap(sender: AnyObject) {
         // Making the keyboard disappear only after having added text to the text field
