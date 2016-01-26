@@ -23,7 +23,7 @@ The following **additional** features are implemented:
 - [x] Pretty UI... :D
 - [x] Making sure user inputs a value before keyboard dissappears - just to prevent crashes from button taps
 - [x] Allowing user to specify how many people the bill is being distributed between and providing amount for each person
-- [ ] Adding the ability to change default number of people
+- [x] Adding the ability to change default number of people
 - [ ] Adding ability to change the theme
 - [ ] Icon & launch page
 - [ ] Cats.

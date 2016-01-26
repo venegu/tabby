@@ -32,6 +32,8 @@ class ViewController: UIViewController {
         billField.placeholder = (currencySymbol as String) + "0.00"
         tipLabel.text = (currencySymbol as String) + "0.00"
         totalLabel.text =  (currencySymbol as String) + "0.00"
+        tipPerPersonLabel.text = (currencySymbol as String) + "0.00"
+        numberPeopleLabel.text = "1"
         
         //Setting previous bill amount when the app closed after checking that billDate returns valid values and comparing the times
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -65,11 +67,14 @@ class ViewController: UIViewController {
         updateAmountEach(values.total)
         
         // Loading # of people
-        //let userNumberOfPeople = defaults.integerForKey("userNumberOfPeople")
+        let userNumberOfPeople = defaults.integerForKey("userNumberPeople")
         
-        // Setting numberPeopleLabel to whatever value userNumberOfPeople has
-        
-    
+        // Setting numberPeopleLabel to whatever value userNumberOfPeople has as long as userNumberOfPeople isn't = to 0
+        if userNumberOfPeople != 0 {
+            numberPeopleLabel.text = String(userNumberOfPeople)
+            let total = NSString(string: String(totalLabel.text!.characters.dropFirst())).doubleValue
+            updateAmountEach(total)
+        }
     }
     
     func calculateTipTotal () -> (tip: Double, total: Double) {
@@ -138,10 +143,6 @@ class ViewController: UIViewController {
             numberPeople = numberPeople! - 1
             numberPeopleLabel.text = "\(numberPeople!)"
             
-            // Currency formatting after inputting a value
-            let formatter = NSNumberFormatter()
-            formatter.numberStyle = .CurrencyStyle
-            
             // Get total, calculate & print amount/person
             let total = NSString(string: String(totalLabel.text!.characters.dropFirst())).doubleValue
             updateAmountEach(total)
@@ -152,10 +153,6 @@ class ViewController: UIViewController {
         var numberPeople = Int(numberPeopleLabel.text!)
         numberPeople = numberPeople! + 1
         numberPeopleLabel.text = "\(numberPeople!)"
-        
-        // Currency formatting after inputting a value
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
         
         // Get total, calculate & print amount/person
         let total = NSString(string: String(totalLabel.text!.characters.dropFirst())).doubleValue

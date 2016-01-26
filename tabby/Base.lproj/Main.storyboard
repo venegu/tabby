@@ -72,12 +72,12 @@
                             <view contentMode="scaleToFill" id="sAk-xW-3xv">
                                 <rect key="frame" x="40" y="204" width="240" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.043137254899999998" green="0.37647058820000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="lRD-TI-5g7">
                                 <rect key="frame" x="40" y="338" width="240" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.043137254899999998" green="0.37647058820000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of 💁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yak-W0-eJT">
                                 <rect key="frame" x="20" y="348" width="91" height="76"/>
@@ -203,19 +203,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Random"/>
-                                    <segment title="Light"/>
-                                    <segment title="Dark"/>
+                                    <segment title="Light Side"/>
+                                    <segment title="Dark Side"/>
                                 </segments>
                             </segmentedControl>
                             <view contentMode="scaleToFill" id="WZr-ik-SSG">
                                 <rect key="frame" x="40" y="182" width="240" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.043137254899999998" green="0.37647058820000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="4x0-sf-Mff">
                                 <rect key="frame" x="40" y="292" width="240" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.043137254899999998" green="0.37647058820000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of 💁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uga-sn-PIB">
                                 <rect key="frame" x="20" y="218" width="91" height="76"/>
@@ -233,7 +233,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onTapMinus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sko-Jx-PV4"/>
+                                    <action selector="userMinusPeopleSetter:" destination="KKR-1i-qBe" eventType="touchUpInside" id="ygF-Bl-EHv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pTn-Uu-PtQ">
@@ -244,7 +244,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onTapPlus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Ia-D0-9CY"/>
+                                    <action selector="userPlusPeopleSetter:" destination="KKR-1i-qBe" eventType="touchUpInside" id="Bfu-an-Spo"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gi1-VQ-7ZM">
@@ -259,6 +259,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="ckW-bh-Tgw"/>
                     <connections>
+                        <outlet property="userNumberPeople" destination="Gi1-VQ-7ZM" id="L6H-fA-Mdn"/>
                         <outlet property="userTip" destination="47H-68-0yd" id="hj1-cJ-cJP"/>
                     </connections>
                 </viewController>
