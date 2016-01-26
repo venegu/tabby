@@ -27,6 +27,8 @@ class ViewController: UIViewController {
         
         // Initial currency formatting when app starts
         let currencySymbol = NSLocale.currentLocale().objectForKey(NSLocaleCurrencySymbol) as! String
+        
+        // Initializing values
         billField.placeholder = (currencySymbol as String) + "0.00"
         tipLabel.text = (currencySymbol as String) + "0.00"
         totalLabel.text =  (currencySymbol as String) + "0.00"
@@ -57,6 +59,10 @@ class ViewController: UIViewController {
         
         // Setting tipControl to whatever userTipPercentage (after loading tipValue)
         tipControl.selectedSegmentIndex = userTipPercentage
+        let values = calculateTipTotal()
+        tipLabel.text = currencyFormatter(values.tip)
+        totalLabel.text = currencyFormatter(values.total)
+        updateAmountEach(values.total)
         
         // Loading # of people
         //let userNumberOfPeople = defaults.integerForKey("userNumberOfPeople")
@@ -66,13 +72,19 @@ class ViewController: UIViewController {
     
     }
     
-    func calculateTip (tipPercentage: Double) -> (tip: Double, total: Double) {
+    func calculateTipTotal () -> (tip: Double, total: Double) {
+        let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         let billAmount = NSString(string: billField.text!).doubleValue
         let tip = billAmount * tipPercentage
         let total = tip + billAmount
         
-        return (total, tip)
+        return (tip, total)
     }
+    
+    /********************************************************************
+     * Parameter: Double that represents monetary value
+     * Return: String that is formatted to show correct currency display
+     ********************************************************************/
     
     func currencyFormatter (moneyValue: Double) -> String {
         let formatter = NSNumberFormatter()
@@ -91,10 +103,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onEditingChange(sender: AnyObject) {
-        
-        let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
-        
-        let values = calculateTip(tipPercentage)
+        let values = calculateTipTotal()
         
         // Currency formatting after inputting a value
         
@@ -135,8 +144,7 @@ class ViewController: UIViewController {
             
             // Get total, calculate & print amount/person
             let total = NSString(string: String(totalLabel.text!.characters.dropFirst())).doubleValue
-            let distTip = total/Double(numberPeople!)
-            tipPerPersonLabel.text = formatter.stringFromNumber(distTip)! + " each"
+            updateAmountEach(total)
         }
     }
     
@@ -151,8 +159,7 @@ class ViewController: UIViewController {
         
         // Get total, calculate & print amount/person
         let total = NSString(string: String(totalLabel.text!.characters.dropFirst())).doubleValue
-        let distTip = total/Double(numberPeople!)
-        tipPerPersonLabel.text = formatter.stringFromNumber(distTip)! + " each"
+        updateAmountEach(total)
     }
     
 }

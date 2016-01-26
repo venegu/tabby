@@ -4,7 +4,7 @@
 
 Submitted by: **Lisa Maldonado**
 
-Time spent: **7** hours spent in total
+Time spent: **9** hours spent in total
 
 ## User Stories
 
@@ -12,7 +12,7 @@ The following **required** functionality is complete:
 * [x] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
 
 The following **optional** features are implemented:
-* [ ] Settings page to change the default tip percentage.
+* [x] Settings page to change the default tip percentage.
 * [ ] UI animations
 * [x] Remembering the bill amount across app restarts (if <10mins)
 * [x] Using locale-specific currency and currency thousands separators.
@@ -21,6 +21,12 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Pretty UI... :D
+- [x] Making sure user inputs a value before keyboard dissappears - just to prevent crashes from button taps
+- [x] Allowing user to specify how many people the bill is being distributed between and providing amount for each person
+- [ ] Adding the ability to change default number of people
+- [ ] Adding ability to change the theme
+- [ ] Icon & launch page
+- [ ] Cats.
 
 ## Video Walkthrough
 
