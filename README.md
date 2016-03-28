@@ -20,26 +20,25 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] Pretty UI... :D
-- [x] Making sure user inputs a value before keyboard dissappears - just to prevent crashes from button taps
-- [x] Allowing user to specify how many people the bill is being distributed between and providing amount for each person
-- [x] Adding the ability to change default number of people
-- [ ] Adding ability to change the theme
-- [ ] Icon & launch page
-- [ ] Cats.
-- [ ] Auto Layout
+- [x] Pretty UI.
+- [x] Making sure user inputs a value before keyboard dissappears.
+- [x] Allowing user to specify how many people the bill is being distributed between and providing amount for each person.
+- [x] Adding the ability to change default number of people.
+- [x] App Icon from [Icon Finder](https://www.iconfinder.com/icons/993786/cat_clients_hello_icojam_kitty_maneki_maneki_neko_icon#size=128s)
+- [x] Cat.
+
+The following **additional** features will be implemented in the future:
+
+- [ ] Auto Layout.
+- [ ] Ability to change theme.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/venegu/tabby/raw/master/tabby.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/venegu/tabby/raw/master/tabby.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />      <img src='https://github.com/venegu/tabby/raw/master/tabby2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
-## Notes
-
-Xcode is really heavy.
 
 ## License
 

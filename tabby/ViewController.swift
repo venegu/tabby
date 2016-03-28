@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
@@ -77,6 +79,8 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Calculating Tip 
+    
     func calculateTipTotal () -> (tip: Double, total: Double) {
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         let billAmount = NSString(string: billField.text!).doubleValue
@@ -85,6 +89,8 @@ class ViewController: UIViewController {
         
         return (tip, total)
     }
+    
+    // MARK: - Currency Formatter
     
     /********************************************************************
      * Parameter: Double that represents monetary value
@@ -98,6 +104,8 @@ class ViewController: UIViewController {
         return formatter.stringFromNumber(moneyValue)!
     }
     
+    // MARK: - Amount Updater
+    
     func updateAmountEach (total:Double) {
         let numberPeople = Double(numberPeopleLabel.text!)
         
@@ -106,6 +114,8 @@ class ViewController: UIViewController {
         tipPerPersonLabel.text = currencyFormatter(distributedAmount) + " each"
         
     }
+    
+    // MARK: - TextField Functions
 
     @IBAction func onEditingChange(sender: AnyObject) {
         let values = calculateTipTotal()
@@ -126,7 +136,7 @@ class ViewController: UIViewController {
         defaults.synchronize()
     }
     
-    
+    // MARK: - Button Functions
 
     @IBAction func onTap(sender: AnyObject) {
         // Making the keyboard disappear only after having added text to the text field
